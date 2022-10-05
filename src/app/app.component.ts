@@ -29,8 +29,10 @@ export class AppComponent implements OnInit {
             distinctUntilChanged(),
         )
             .subscribe((data: string) => {
-                this.params.q = data;
-                this.getData()
+                if (data) {
+                    this.params.q = data;
+                    this.getData()
+                }
             });
     }
 
