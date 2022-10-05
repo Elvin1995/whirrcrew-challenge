@@ -24,7 +24,11 @@ export class AppComponent implements OnInit {
         this.getData();
     }
 
-    getData() {
+    getData(event?: any) {
+        if (event?.pageIndex) {
+            this.params.offset = event?.pageIndex
+        }
+        console.log(this.params, 'this.params')
         const url = "http://api.giphy.com/v1/gifs/search"
         let query = new HttpParams();
         Object.keys(this.params).forEach(key => {
@@ -37,7 +41,7 @@ export class AppComponent implements OnInit {
                 return throwError(err);
             }))
             .subscribe((res: any) => {
-                this.data = res?.data
+                this.data = res
             })
     }
 }

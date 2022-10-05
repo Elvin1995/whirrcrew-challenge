@@ -1,3 +1,10 @@
 <mat-grid-list cols="3">
-  <mat-grid-tile *ngFor="let item of data"><img [src]="item?.images?.original?.url"></mat-grid-tile>
+  <mat-grid-tile *ngFor="let item of data?.data">
+    <img [src]="item?.images?.original?.url">
+  </mat-grid-tile>
 </mat-grid-list>
+<mat-paginator [length]="data?.pagination?.total_count"
+               [pageSize]="params.limit"
+               [pageIndex]="params?.offset"
+               (page)="getData($event)">
+</mat-paginator>
