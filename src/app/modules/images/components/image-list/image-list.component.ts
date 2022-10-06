@@ -9,7 +9,7 @@ import {ImagesService} from '../../services/images.service';
 })
 export class ImageListComponent implements OnInit {
     params: any = {
-        q: 'ryan gosling',
+        q: 'elizabeth olsen',
         api_key: '8LUILyUoIzBkh6uks8I6oG8vRNg9Rmz5',
         limit: 9,
         offset: 0
@@ -53,6 +53,8 @@ export class ImageListComponent implements OnInit {
     }
 
     ngOnDestroy(): void {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 }
