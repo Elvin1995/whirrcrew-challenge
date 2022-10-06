@@ -1,16 +1,1 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Search</mat-label>
-    <input matInput value="ryan gosling" (keyup)="search($event)">
-  </mat-form-field>
-</form>
-<mat-grid-list cols="3">
-  <mat-grid-tile *ngFor="let item of data?.data">
-    <img [src]="item?.images?.original?.url">
-  </mat-grid-tile>
-</mat-grid-list>
-<mat-paginator [length]="data?.pagination?.total_count"
-               [pageSize]="params.limit"
-               [pageIndex]="params?.offset"
-               (page)="getData($event)">
-</mat-paginator>
+<router-outlet></router-outlet>
