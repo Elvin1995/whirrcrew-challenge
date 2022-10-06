@@ -14,7 +14,13 @@ export class ImagesService {
 
     }
 
-    getImages(params: any) {
+    getImages(data?: any) {
+        const params = data?.q ? data : {
+            q: 'elizabeth olsen',
+            api_key: '8LUILyUoIzBkh6uks8I6oG8vRNg9Rmz5',
+            limit: 9,
+            offset: 0
+        };
         let query = new HttpParams();
         Object.keys(params).forEach(key => {
             query = query.set(key, params[key]);

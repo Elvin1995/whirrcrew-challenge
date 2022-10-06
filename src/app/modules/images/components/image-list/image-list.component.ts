@@ -8,17 +8,12 @@ import {ImagesService} from '../../services/images.service';
     styleUrls: ['./image-list.component.scss']
 })
 export class ImageListComponent implements OnInit {
-    params: any = {
-        q: 'elizabeth olsen',
-        api_key: '8LUILyUoIzBkh6uks8I6oG8vRNg9Rmz5',
-        limit: 9,
-        offset: 0
-    };
+    params: any = {};
     data: any;
     searchTextChanged = new Subject<string>();
     subscription: any;
 
-    constructor(private imagesService: ImagesService) {
+    constructor(public imagesService: ImagesService) {
     }
 
     ngOnInit() {
